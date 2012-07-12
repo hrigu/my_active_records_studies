@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712134648) do
+ActiveRecord::Schema.define(:version => 20120712151258) do
+
+  create_table "clients", :force => true do |t|
+    t.string   "name"
+    t.integer  "hours_per_week"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "clients_users", :id => false, :force => true do |t|
+    t.integer "client_id"
+    t.integer "user_id"
+  end
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -34,6 +46,15 @@ ActiveRecord::Schema.define(:version => 20120712134648) do
     t.text     "note"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                  :limit => 45
+    t.string   "password",               :limit => 40
+    t.string   "salt",                   :limit => 40
+    t.boolean  "is_internal_super_user"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
 end
