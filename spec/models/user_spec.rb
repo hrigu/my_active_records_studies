@@ -2,8 +2,15 @@ require 'spec_helper'
 
 describe User do
   it "has a relation to clients" do
-    users = User.create [{email: "a"},{email: "b"}, {email: "c"}]
-    clients = Client.create [{name: "1"}, {name: "2"}, {name: "3"}]
+
+    a = FactoryGirl.create(:user, email: "a")
+    b = FactoryGirl.create(:user, email: "b")
+    c = FactoryGirl.create(:user, email: "c")
+
+    one = FactoryGirl.create(:client, name: "1")
+    two = FactoryGirl.create(:client, name: "2")
+    three = FactoryGirl.create(:client, name: "3")
+
 
     a = User.find_by_email "a"
     client = Client.find_by_name "1"

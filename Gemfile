@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -25,7 +24,13 @@ gem 'jquery-rails'
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem "therubyracer"  #rspec needs a Javascript runtime gem install therubyracer (See https://github.com/sstephenson/execjs for a list of available runtimes)
+  gem 'factory_girl_rails' #a fixture replacement
 end
+
+#
+# doesn't work: error = dependency.rb:247:in `to_specs': Could not find annotate (>= 0) amongst ....
+#gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+
 
 
 # To use ActiveModel has_secure_password
