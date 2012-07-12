@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-default_color =  {name: 'yellow', rgb: "FFFF00", sort_order: 4}
+default_color =  {name: 'yellow', rgb: "FFFF00", sort_order: 1}
 
 describe Color do
   describe "with empty table" do
@@ -19,6 +19,17 @@ describe Color do
       color.name.should == default_color[:name]
       color.rgb.should == default_color[:rgb]
       color.sort_order.should == default_color[:sort_order]
+    end
+  end
+
+  describe "color.name should be unique" do
+    before do
+      Color.create default_color
+    end
+
+    it "should throw an exception" do
+      Color.create default_color
+      Color.all.size.should == 1
     end
   end
 end

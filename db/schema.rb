@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712085145) do
+ActiveRecord::Schema.define(:version => 20120712134648) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(:version => 20120712085145) do
     t.integer  "sort_order"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "service_types", :force => true do |t|
+    t.integer  "color_id"
+    t.datetime "time_from"
+    t.datetime "time_to"
+    t.datetime "duration"
+    t.boolean  "is_personal"
+    t.boolean  "is_holiday"
+    t.integer  "sort_order"
+    t.boolean  "is_active"
+    t.string   "explanation"
+    t.text     "note"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

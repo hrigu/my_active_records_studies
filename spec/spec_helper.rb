@@ -8,6 +8,10 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+# Log the sql
+ActiveRecord::Base.logger = Logger.new(STDOUT)
+
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
