@@ -22,6 +22,12 @@ end
 
 gem 'jquery-rails'
 
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+  gem "therubyracer"  #rspec needs a Javascript runtime gem install therubyracer (See https://github.com/sstephenson/execjs for a list of available runtimes)
+end
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
