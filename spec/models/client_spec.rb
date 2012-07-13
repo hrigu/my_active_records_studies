@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Client do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "knows its users" do
+    client = FactoryGirl.create(:client)
+    client.users[0].email == FactoryGirl.attributes_for(:client)[:email]
+  end
 end

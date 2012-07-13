@@ -5,5 +5,7 @@ FactoryGirl.define do
     abbreviation "mri"
     first_name "Martin"
     last_name "Ringelnatter"
+
+    client
   end
 end
