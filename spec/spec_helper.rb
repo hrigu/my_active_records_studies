@@ -10,7 +10,7 @@ require 'factory_girl'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 # Log the sql
-ActiveRecord::Base.logger = Logger.new(STDOUT)
+# ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 
 RSpec.configure do |config|

@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-default_color =  {name: 'yellow', rgb: "FFFF00", sort_order: 1}
 
 describe Color do
   describe "with empty table" do
@@ -9,26 +8,37 @@ describe Color do
     end
   end
   describe "with one record" do
+
     before do
-      Color.create default_color
+      FactoryGirl.create :color
     end
+
     it "should have one colors" do
       colors = Color.all
       colors.size.should == 1
       color = colors[0]
-      color.name.should == default_color[:name]
-      color.rgb.should == default_color[:rgb]
-      color.sort_order.should == default_color[:sort_order]
+      attrs = FactoryGirl.attributes_for(:color)
+      color.name.should == attrs[:name]
+      color.rgb.should == attrs[:rgb]
+      color.sort_order.should == attrs[:sort_order]
     end
   end
 
-  describe "color.name should be unique" do
+  describe "color.name must be unique" do
+
     before do
-      Color.create default_color
+      FactoryGirl.create :color
     end
 
     it "should throw an exception" do
-      Color.create default_color
+      begin
+        FactoryGirl.create :color
+        message = nil
+      rescue ActiveRecord::RecordInvalid => invalid
+        puts "!!!!!"
+        message = invalid.record.errors.messages[:name][0]
+      end
+      message.should match "Already a Color with this name"
       Color.all.size.should == 1
     end
   end
