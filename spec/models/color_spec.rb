@@ -35,7 +35,6 @@ describe Color do
         FactoryGirl.create :color
         message = nil
       rescue ActiveRecord::RecordInvalid => invalid
-        puts "!!!!!"
         message = invalid.record.errors.messages[:name][0]
       end
       message.should match "Already a Color with this name"
