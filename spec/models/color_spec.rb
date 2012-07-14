@@ -10,7 +10,7 @@ describe Color do
   describe "with one record" do
 
     before do
-      FactoryGirl.create :color
+      FactoryGirl.find_or_create :color
     end
 
     it "should have one colors" do
@@ -37,7 +37,8 @@ describe Color do
       rescue ActiveRecord::RecordInvalid => invalid
         message = invalid.record.errors.messages[:name][0]
       end
-      message.should match "Already a Color with this name"
+      message.should_not be nil
+      message.should match "There is already a Color with the same name"
       Color.all.size.should == 1
     end
   end

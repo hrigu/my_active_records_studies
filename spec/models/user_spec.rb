@@ -7,20 +7,15 @@ describe User do
     b = FactoryGirl.create(:user, email: "b")
     c = FactoryGirl.create(:user, email: "c")
 
-    one = FactoryGirl.create(:client, name: "1")
-    two = FactoryGirl.create(:client, name: "2")
-    three = FactoryGirl.create(:client, name: "3")
+    FactoryGirl.create(:client, name: "1", users: [a, b, c])
 
 
-    a = User.find_by_email "a"
-    client = Client.find_by_name "1"
-    a.clients << client
+    found_user = User.find_by_email "a"
+    found_client = found_user.clients()[0]
 
-    a.save
+    found_client.users.size.should == 3
+    found_client.users.should include found_user
 
-    a = User.find_by_email "a"
-    a.clients[0].should == client
-    client.users[0].should == a
 
   end
 end

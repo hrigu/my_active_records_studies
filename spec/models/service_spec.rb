@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-ActiveRecord::Base.logger = Logger.new(STDOUT)
 describe Service do
   before() do
     @service = FactoryGirl.create :service
