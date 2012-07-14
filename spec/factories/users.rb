@@ -1,14 +1,19 @@
 
 FactoryGirl.define do
+
+  sequence :email do |n|
+    "person#{n}@planik.ch"
+  end
+
   factory :user do
-    email "a@planik.ch"
+    email
     is_internal_super_user false
     password "password"
     salt "salt"
   end
 
   factory :super_user, class: User do
-    email "b@planik.ch"
+    email
     is_internal_super_user true
     password "password"
     salt "salt"
