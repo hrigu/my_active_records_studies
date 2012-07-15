@@ -40,6 +40,7 @@ describe "playing with a graph" do
     fb.name.should match "fb"
     service_type = fb.staffs[0].services[0].service_type
     service_type.explanation.should match "spaetschicht"
+    service_type.color.name.should match "blue"
 
 
 
