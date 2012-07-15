@@ -4,5 +4,5 @@ class Staff < ActiveRecord::Base
   validates_uniqueness_of :abbreviation
 
   belongs_to :client
-  has_many :services
+  has_many :services, :dependent => :destroy
 end
