@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713174441) do
+ActiveRecord::Schema.define(:version => 20120715102958) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(:version => 20120713174441) do
     t.string   "name"
     t.string   "rgb"
     t.integer  "sort_order"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "lock_version", :default => 0
   end
 
   create_table "service_types", :force => true do |t|

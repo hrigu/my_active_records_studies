@@ -4,9 +4,7 @@ class CreateServices < ActiveRecord::Migration
       t.datetime :date_time_from
       t.datetime :date_tyime_to
       t.string :error_text
-
       t.timestamps
-
       t.references :staff
       t.references :service_type
     end
