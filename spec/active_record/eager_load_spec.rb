@@ -4,9 +4,6 @@ require 'spec_helper'
 describe "eager_loading" do
 
   it "should work" do
-
-    Logger.new()
-
     user = FactoryGirl.create(:user, email: "user@planik.ch")
     planik = FactoryGirl.create(:client, name: "planik", users: [user])
 
@@ -24,7 +21,6 @@ describe "eager_loading" do
 
 
     ActiveRecord::Base.logger = Logger.new(STDOUT)
-
 
     colors = Color.includes(:service_types => [:services => [:staff => [:client => [:users]]]]).all
     colors.size.should == 2
