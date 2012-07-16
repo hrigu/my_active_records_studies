@@ -1,0 +1,11 @@
+# Logfile created on 2012-07-16 13:43:15 +0200 by logger.rb/31641
+Logger
+debug message
+info message
+warn message
+error message
+Logger
+debug message
+info message
+warn message
+error message
