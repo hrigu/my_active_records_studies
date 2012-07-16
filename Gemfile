@@ -25,6 +25,7 @@ group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem "therubyracer"  #rspec needs a Javascript runtime gem install therubyracer (See https://github.com/sstephenson/execjs for a list of available runtimes)
   gem 'factory_girl_rails' #a fixture replacement
+  gem 'RedCloth' # for generating rake doc:guides
 end
 
 #
