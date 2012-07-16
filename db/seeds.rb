@@ -16,4 +16,5 @@ myColors = [
     {name: 'purple', rgb: "800080", sort_order: 5},
 ]
 
-yellow = Color.create myColors
+Color.create myColors
+AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')

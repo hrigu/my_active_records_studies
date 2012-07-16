@@ -29,10 +29,10 @@ group :test, :development do
 end
 
 #
-# doesn't work: error = dependency.rb:247:in `to_specs': Could not find annotate (>= 0) amongst ....
+# tried it out, but doesn't work: error = dependency.rb:247:in `to_specs': Could not find annotate (>= 0) amongst ....
 #gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
-
+gem 'activeadmin'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
