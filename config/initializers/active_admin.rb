@@ -126,4 +126,11 @@ ActiveAdmin.setup do |config|
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
+
+  # Fixes a bug: https://github.com/gregbell/active_admin/issues/1203
+  module ActiveAdmin
+    class Comment < ActiveRecord::Base
+      attr_accessible :body, :namespace, :resource_id, :resource_type
+    end
+  end
 end
