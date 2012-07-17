@@ -5,4 +5,8 @@ class Staff < ActiveRecord::Base
 
   belongs_to :client
   has_many :services, :dependent => :destroy
+
+  def to_s
+    abbreviation
+  end
 end

@@ -9,13 +9,14 @@ ActiveAdmin.register Color do
     attributes_table do
       row :name
       row :rgb
-    end
-    table_for color.service_types do |st|
-      column :explanation do |st|
-        link_to st.explanation, admin_service_type_path(st)
+      row "service_types" do
+        table_for color.service_types do |st|
+          column :explanation do |st|
+            link_to st.explanation, admin_service_type_path(st)
+          end
+          column :duration
+        end
       end
-      column :duration
-
     end
     active_admin_comments
   end

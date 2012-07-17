@@ -8,5 +8,8 @@ class ServiceType < ActiveRecord::Base
   belongs_to :color
   has_many :services
 
+  def to_s
+    explanation
+  end
 
 end
